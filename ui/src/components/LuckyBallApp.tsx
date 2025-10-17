@@ -402,6 +402,7 @@ export function LuckyBallApp() {
 
           <div className="section">
             <h2 className="section-title">Buy Ticket</h2>
+            <p>Your ticket is encrypted by zama.</p>
             <p className="section-description">
               Select a number and purchase a ticket for the current draw. Each ticket costs {ticketPriceLabel}.
             </p>

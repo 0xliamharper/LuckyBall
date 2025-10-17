@@ -1,6 +1,5 @@
-export const CONTRACT_ADDRESS =
-  (import.meta.env.VITE_LUCKYBALL_ADDRESS as `0x${string}` | undefined) ??
-  '0x0000000000000000000000000000000000000000';
+// Frontend must not use environment variables; set the deployed address here
+export const CONTRACT_ADDRESS: `0x${string}` = '0x5e983Bb30A6e022f9a7AF853751533dD4DFB1039';
 
 export const CONTRACT_ABI = [
   {
