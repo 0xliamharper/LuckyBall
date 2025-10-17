@@ -1,0 +1,42 @@
+.header {
+  background: rgba(30, 64, 175, 0.92);
+  border-bottom: 1px solid rgba(191, 219, 254, 0.45);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #eef2ff;
+  letter-spacing: 0.02em;
+}
+
+.brand-subtitle {
+  margin: 0;
+  color: rgba(224, 231, 255, 0.85);
+  font-size: 13px;
+  font-weight: 500;
+}
