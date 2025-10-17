@@ -17,8 +17,8 @@ dotenv.config();
 
 // Run 'npx hardhat vars setup' to see the list of variables that need to be set
 
-const MNEMONIC: string = process.env.MNEMONIC ?? vars.get("MNEMONIC", "test test test test test test test test test test test junk");
 const INFURA_API_KEY: string = process.env.INFURA_API_KEY ?? vars.get("INFURA_API_KEY", "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+const PRIVATE_KEY: string | undefined = process.env.PRIVATE_KEY;
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -38,26 +38,21 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       accounts: {
-        mnemonic: MNEMONIC,
+        // Local testing uses Hardhat default accounts
+        mnemonic: vars.get("MNEMONIC", "test test test test test test test test test test test junk"),
       },
       chainId: 31337,
       saveDeployments: true,
     },
     anvil: {
-      accounts: {
-        mnemonic: MNEMONIC,
-        path: "m/44'/60'/0'/0/",
-        count: 10,
-      },
+      // Optional local Anvil/Foundry node
+      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : undefined,
       chainId: 31337,
       url: "http://localhost:8545",
     },
     sepolia: {
-      accounts: {
-        mnemonic: MNEMONIC,
-        path: "m/44'/60'/0'/0/",
-        count: 10,
-      },
+      // Deploy with private key (no mnemonic)
+      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : undefined,
       chainId: 11155111,
       url: `https://sepolia.infura.io/v3/${INFURA_API_KEY}`,
       saveDeployments: true,
