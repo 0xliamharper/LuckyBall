@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createInstance, initSDK, SepoliaConfig } from '@zama-fhe/relayer-sdk/bundle';
+import { createInstance,initSDK,SepoliaConfig } from '@zama-fhe/relayer-sdk/bundle';
 
 export function useZamaInstance() {
   const [instance, setInstance] = useState<any>(null);
@@ -13,14 +13,9 @@ export function useZamaInstance() {
       try {
         setIsLoading(true);
         setError(null);
-        await initSDK();
+        await initSDK()
 
-        const config = {
-          ...SepoliaConfig,
-          network: typeof window !== 'undefined' ? (window as any).ethereum ?? SepoliaConfig.network : SepoliaConfig.network,
-        };
-
-        const zamaInstance = await createInstance(config);
+        const zamaInstance = await createInstance(SepoliaConfig);
 
         if (mounted) {
           setInstance(zamaInstance);
