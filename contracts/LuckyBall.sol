@@ -2,11 +2,11 @@
 pragma solidity ^0.8.24;
 
 import {FHE, ebool, euint8, euint32, externalEuint8} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 
 /// @title LuckyBall
 /// @notice Encrypted lottery using Zama FHEVM on Sepolia
-contract LuckyBall is SepoliaConfig {
+contract LuckyBall is ZamaEthereumConfig {
     uint256 public constant TICKET_PRICE = 1e15; // 0.001 ether
     uint8 private constant MIN_NUMBER = 1;
     uint8 private constant MAX_NUMBER = 9;

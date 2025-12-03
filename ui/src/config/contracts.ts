@@ -1,5 +1,5 @@
 // Frontend must not use environment variables; set the deployed address here
-export const CONTRACT_ADDRESS: `0x${string}` = '0x5e983Bb30A6e022f9a7AF853751533dD4DFB1039';
+export const CONTRACT_ADDRESS: `0x${string}` = '0x7cb173838A52446E6E69dc9acEb6D05Ed85F7932';
 
 export const CONTRACT_ABI = [
   {
